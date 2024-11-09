@@ -25,7 +25,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '22'
+        node-version: '23'
 
     - name: Install dependencies
       run: npm install
@@ -68,7 +68,7 @@ jobs:
       run: npm preview
 
     - name: Run Cypress E2E tests
-      run: npm run test:e2e -- --reporter=junit --outputFile=./reports/e2e-test-results.xml
+      run: npm run test:e2e -- --reporter junit --reporter-options "mochaFile=./reports/e2e-test-results.xml,toConsole=true"
 
     - name: List reports directory contents (E2E tests)
       run: ls -la ./reports
