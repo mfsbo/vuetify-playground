@@ -65,7 +65,7 @@ jobs:
       run: npm run build-only
 
     - name: Run Preview Server
-      run: npm preview
+      run: npm run preview
 
     - name: Run Cypress E2E tests
       run: npm run test:e2e -- --reporter junit --reporter-options "mochaFile=./reports/e2e-test-results.xml,toConsole=true"
