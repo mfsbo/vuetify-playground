@@ -1,0 +1,64 @@
+name: Run E2E Tests
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # Job for running Cypress E2E tests
+  e2e-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '23'
+    
+    - name: Generate local certificates
+      run: |
+        mkdir -p ./certs
+        openssl req -x509 -nodes -days 1 -newkey rsa:2048 -keyout ./certs/localhost-key.pem -out ./certs/localhost.pem -subj "/CN=localhost"
+
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Only Build Application
+      run: npm run build-only
+
+    - name: Start Preview Server in Background
+      run: |
+        npm run preview &
+        echo $! > preview_server.pid
+        sleep 5 # Wait for server to start
+
+    - name: Run Cypress E2E tests
+      run: npm run test:e2e -- --reporter junit --reporter-options "mochaFile=./reports/e2e-test-results.xml,toConsole=true"
+
+    - name: Stop Preview Server
+      run: |
+        kill $(cat preview_server.pid)
+
+    - name: List reports directory contents (E2E tests)
+      run: ls -la ./reports
+
+    - name: Publish E2E test results
+      if: always()
+      uses: dorny/test-reporter@v1
+      with:
+        name: E2E Test Results
+        path: ./reports/e2e-test-results.xml
+        reporter: jest-junit
