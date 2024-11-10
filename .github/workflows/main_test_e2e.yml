@@ -39,15 +39,18 @@ jobs:
     - name: Only Build Application
       run: npm run build-only
 
-    - name: Run Preview Server
+    - name: Start Preview Server in Background
       run: |
         npm run preview &
-        PREVIEW_PID=$!
-        echo "Preview server PID: $PREVIEW_PID"
-        trap "kill $PREVIEW_PID" EXIT
+        echo $! > preview_server.pid
+        sleep 5 # Wait for server to start
 
     - name: Run Cypress E2E tests
       run: npm run test:e2e -- --reporter junit --reporter-options "mochaFile=./reports/e2e-test-results.xml,toConsole=true"
+
+    - name: Stop Preview Server
+      run: |
+        kill $(cat preview_server.pid)
 
     - name: List reports directory contents (E2E tests)
       run: ls -la ./reports
