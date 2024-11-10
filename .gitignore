@@ -31,3 +31,5 @@ coverage
 
 # Https Certs
 /certs
+
+*storybook.log
