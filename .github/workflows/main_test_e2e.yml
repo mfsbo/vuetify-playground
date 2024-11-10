@@ -26,6 +26,12 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '23'
+    
+    - name: Generate local certificates
+      run: |
+        mkdir -p ./certs
+        openssl req -x509 -nodes -days 1 -newkey rsa:2048 -keyout ./certs/localhost-key.pem -out ./certs/localhost.pem -subj "/CN=localhost"
+
 
     - name: Install dependencies
       run: npm install
