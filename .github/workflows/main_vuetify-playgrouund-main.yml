@@ -1,12 +1,12 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Live:Build:Deploy
+name: Main:Build:Deploy
 
 on:
   push:
     branches:
-      - Live
+      - main
   workflow_dispatch:
 
 jobs:
@@ -113,7 +113,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'vuetify-playground-Live'
+          app-name: 'vuetify-playgrouund-main'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_14E0BAAD72C54773848679159A56A7DA }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_96D1EE6715C34E5CB91090211FE0331D }}
           package: ./release/

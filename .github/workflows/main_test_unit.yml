@@ -1,0 +1,45 @@
+name: Run Unit Tests
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # Job for running unit tests
+  unit-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '23'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run unit tests
+      run: npm run test:unit -- --reporter=junit --outputFile=./reports/unit-test-results.xml
+
+    - name: List reports directory contents (unit tests)
+      run: ls -la ./reports
+
+    - name: Publish unit test results
+      if: always()
+      uses: dorny/test-reporter@v1
+      with:
+        name: Unit Test Results
+        path: ./reports/unit-test-results.xml
+        reporter: jest-junit
