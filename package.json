@@ -11,6 +11,7 @@
     "test:e2e": "cypress run --e2e",
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
+    "type-check:watch": "vue-tsc --noEmit --watch",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
     "win:setup:dev:certs": "powershell -Command \"if (!(Test-Path './certs')) { New-Item -ItemType Directory -Path './certs' }; Set-Location ./certs; mkcert localhost\"",
