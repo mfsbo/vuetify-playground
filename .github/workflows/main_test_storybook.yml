@@ -43,7 +43,7 @@ jobs:
       run: |
         npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
         "npx http-server storybook-static --port 6006 --silent" \
-        "npx wait-on tcp:127.0.0.1:6006 && yarn test-storybook -- --json --outputFile ./reports/storybook-results.json"
+        "npx wait-on tcp:127.0.0.1:6006 && yarn test-storybook -- --junit --outputFile ./reports/storybook-results.xml"
 
     - name: List reports directory contents (Story Book tests)
       run: ls -la ./reports
@@ -53,5 +53,5 @@ jobs:
       uses: dorny/test-reporter@v1
       with:
         name: Story Book Test Results
-        path: ./reports/storybook-results.json
-        reporter: mocha-json
+        path: ./reports/storybook-results.xml
+        reporter: jest-junit
