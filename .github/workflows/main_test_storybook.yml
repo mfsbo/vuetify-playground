@@ -1,0 +1,54 @@
+name: Run Storybook Tests
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # Job for running unit tests
+  unit-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '23'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Install Playwright
+      run: npx playwright install --with-deps
+      
+    - name: Build Storybook
+      run: npm build-storybook --quiet
+    
+    - name: Serve Storybook and run tests
+      run: |
+        npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+        "npx http-server storybook-static --port 6006 --silent" \
+        "npx wait-on tcp:127.0.0.1:6006 && yarn test-storybook --json --outputFile ./reports/storybook-results.json"
+
+    - name: List reports directory contents (Story Book tests)
+      run: ls -la ./reports
+
+    - name: Publish Story Book test results
+      if: always()
+      uses: dorny/test-reporter@v1
+      with:
+        name: Story Book Test Results
+        path: ./reports/storybook-results.json
+        reporter: mocha-json
