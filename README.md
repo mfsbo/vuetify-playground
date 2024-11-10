@@ -10,15 +10,15 @@
 
 ### Staging branch (Staging)
 
-- Production Build: [vuetify-playground-staging-hpekfgh7bbgxame0.uksouth-01.azurewebsites.net/](vuetify-playground-staging-hpekfgh7bbgxame0.uksouth-01.azurewebsites.net/)
-- Development Build: [vuetify-playground-staging-hpekfgh7bbgxame0.uksouth-01.azurewebsites.net/dev/](vuetify-playground-staging-hpekfgh7bbgxame0.uksouth-01.azurewebsites.net/dev/)
-- Storybook : [vuetify-playground-staging-hpekfgh7bbgxame0.uksouth-01.azurewebsites.net/story/](vuetify-playground-staging-hpekfgh7bbgxame0.uksouth-01.azurewebsites.net/story/)
+- Production Build: [https://vuetify-playground-staging-hpekfgh7bbgxame0.uksouth-01.azurewebsites.net/](https://vuetify-playground-staging-hpekfgh7bbgxame0.uksouth-01.azurewebsites.net/)
+- Development Build: [https://vuetify-playground-staging-hpekfgh7bbgxame0.uksouth-01.azurewebsites.net/dev/](https://vuetify-playground-staging-hpekfgh7bbgxame0.uksouth-01.azurewebsites.net/dev/)
+- Storybook : [https://vuetify-playground-staging-hpekfgh7bbgxame0.uksouth-01.azurewebsites.net/story/](https://vuetify-playground-staging-hpekfgh7bbgxame0.uksouth-01.azurewebsites.net/story/)
 
 ### Production branch (Production)
 
-- Production Build: [vuetify-playground-live-gqa6dhe7ergubvh5.uksouth-01.azurewebsites.net/](vuetify-playground-live-gqa6dhe7ergubvh5.uksouth-01.azurewebsites.net/)
-- Development Build: [vuetify-playground-live-gqa6dhe7ergubvh5.uksouth-01.azurewebsites.net/dev/](vuetify-playground-live-gqa6dhe7ergubvh5.uksouth-01.azurewebsites.net/dev/)
-- Storybook : [vuetify-playground-live-gqa6dhe7ergubvh5.uksouth-01.azurewebsites.net/story/](vuetify-playground-live-gqa6dhe7ergubvh5.uksouth-01.azurewebsites.net/story/)
+- Production Build: [https://vuetify-playground-live-gqa6dhe7ergubvh5.uksouth-01.azurewebsites.net/](https://vuetify-playground-live-gqa6dhe7ergubvh5.uksouth-01.azurewebsites.net/)
+- Development Build: [https://vuetify-playground-live-gqa6dhe7ergubvh5.uksouth-01.azurewebsites.net/dev/](https://vuetify-playground-live-gqa6dhe7ergubvh5.uksouth-01.azurewebsites.net/dev/)
+- Storybook : [https://vuetify-playground-live-gqa6dhe7ergubvh5.uksouth-01.azurewebsites.net/story/](https://vuetify-playground-live-gqa6dhe7ergubvh5.uksouth-01.azurewebsites.net/story/)
 
 ## Project Description
 
