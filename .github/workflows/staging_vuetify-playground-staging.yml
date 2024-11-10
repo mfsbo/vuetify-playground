@@ -116,4 +116,4 @@ jobs:
           app-name: 'vuetify-playground-staging'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_818AEBF5E7EE48E1A3798A55E0F4C2AF }}
-          package: .
+          package: ./release/
