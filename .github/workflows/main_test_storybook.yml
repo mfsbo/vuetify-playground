@@ -15,7 +15,7 @@ on:
 
 jobs:
   # Job for running unit tests
-  unit-tests:
+  storybook-tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -35,18 +35,12 @@ jobs:
       
     - name: Build Storybook
       run: npm run build-storybook --quiet
-
-    - name: Create reports directory
-      run: mkdir -p ./reports
     
     - name: Serve Storybook and run tests
       run: |
         npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
         "npx http-server storybook-static --port 6006 --silent" \
         "npx wait-on tcp:127.0.0.1:6006 && yarn test-storybook -- --junit"
-
-    - name: List reports directory contents (Story Book tests)
-      run: ls -la ./
 
     - name: Publish Story Book test results
       if: always()
