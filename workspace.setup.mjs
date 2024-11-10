@@ -2,6 +2,7 @@ import { access } from 'fs/promises'
 import { exec } from 'child_process'
 import { promisify } from 'util'
 import path from 'path'
+import os from 'os'
 
 const execAsync = promisify(exec)
 
@@ -12,8 +13,10 @@ const certFiles = [
   path.join(certFolder, 'localhost.pem'),
   path.join(certFolder, 'localhost-key.pem'),
 ]
-// Setup npm cert command
-const npmCertCommand = 'npm run setup:dev:certs'
+// Setup npm cert commands
+const npmCertCommandWin = 'npm run win:setup:dev:certs'
+const npmCertCommandMac = 'npm run mac:setup:dev:certs'
+
 // Setup node_modules folder path
 const nodeModulesFolder = './node_modules'
 
@@ -73,6 +76,7 @@ async function runSetup() {
     }
 
     console.log('Running npm run setup:cert...')
+    const npmCertCommand = os.platform() === 'win32' ? npmCertCommandWin : npmCertCommandMac
     await execAsync(npmCertCommand)
     console.log('Setup completed successfully.')
   } catch (err) {
