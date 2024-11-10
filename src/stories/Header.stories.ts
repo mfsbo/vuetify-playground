@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3';
 
 import MyHeader from './Header.vue';
 
-const meta = {
+const meta: Meta<typeof MyHeader> = {
   /* 👇 The title prop is optional.
    * See https://storybook.js.org/docs/configure/#configure-story-loading
    * to learn how to generate automatic titles
@@ -13,7 +13,7 @@ const meta = {
   render: (args: any) => ({
     components: { MyHeader },
     setup() {
-      return { args };
+      return { args }
     },
     template: '<my-header :user="args.user" />',
   }),
@@ -28,7 +28,7 @@ const meta = {
   },
   // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
-} satisfies Meta<typeof MyHeader>;
+} satisfies Meta<typeof MyHeader>
 
 export default meta;
 type Story = StoryObj<typeof meta>;
