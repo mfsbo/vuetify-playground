@@ -14,7 +14,6 @@
     "type-check:watch": "vue-tsc --noEmit --watch",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
-    "postversion": "git push && git push --tags",
     "win:setup:dev:certs": "powershell -Command \"if (!(Test-Path './certs')) { New-Item -ItemType Directory -Path './certs' }; Set-Location ./certs; mkcert localhost\"",
     "mac:setup:dev:certs": "mkdir -p ./certs && mkcert -key-file ./certs/localhost-key.pem -cert-file ./certs/localhost.pem localhost",
     "storybook": "storybook dev -p 6006",

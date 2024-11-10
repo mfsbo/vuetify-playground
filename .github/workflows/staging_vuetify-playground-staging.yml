@@ -114,6 +114,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'vuetify-playground-staging'
-          slot-name: 'Staging'
+          slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_818AEBF5E7EE48E1A3798A55E0F4C2AF }}
-          package: ./release/
+          package: .

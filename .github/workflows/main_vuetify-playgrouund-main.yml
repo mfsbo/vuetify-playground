@@ -114,6 +114,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'vuetify-playgrouund-main'
-          slot-name: 'Development'
+          slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_96D1EE6715C34E5CB91090211FE0331D }}
           package: ./release/
