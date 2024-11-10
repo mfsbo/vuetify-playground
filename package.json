@@ -17,7 +17,8 @@
     "win:setup:dev:certs": "powershell -Command \"if (!(Test-Path './certs')) { New-Item -ItemType Directory -Path './certs' }; Set-Location ./certs; mkcert localhost\"",
     "mac:setup:dev:certs": "mkdir -p ./certs && mkcert -key-file ./certs/localhost-key.pem -cert-file ./certs/localhost.pem localhost",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test-storybook": "test-storybook"
   },
   "dependencies": {
     "vue": "^3.5.12",
@@ -30,6 +31,7 @@
     "@storybook/addon-onboarding": "^8.4.2",
     "@storybook/blocks": "^8.4.2",
     "@storybook/test": "^8.4.2",
+    "@storybook/test-runner": "^0.19.1",
     "@storybook/vue3": "^8.4.2",
     "@storybook/vue3-vite": "^8.4.2",
     "@tsconfig/node22": "^22.0.0",

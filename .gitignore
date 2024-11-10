@@ -33,3 +33,5 @@ coverage
 /certs
 
 *storybook.log
+/storybook-static
+/reports
