@@ -38,7 +38,7 @@ jobs:
       - name: Development Build
         env:
           NODE_ENV: development
-        run: npm run build -- --mode=development --base="/dev/"
+        run: npm run build-only -- --mode=development --base="/dev/"
 
       - name: Zip Dev artifact for deployment
         run: |

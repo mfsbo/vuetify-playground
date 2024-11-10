@@ -1,5 +1,13 @@
 # vuetify-playground
 
+## Urls Deployed
+
+### main branch (Development)
+
+- Production Build: [https://vuetify-playgrouund-main-c2g7a5f8degfc5c2.uksouth-01.azurewebsites.net/](https://vuetify-playgrouund-main-c2g7a5f8degfc5c2.uksouth-01.azurewebsites.net/)
+- Development Build: [https://vuetify-playgrouund-main-c2g7a5f8degfc5c2.uksouth-01.azurewebsites.net/dev/](https://vuetify-playgrouund-main-c2g7a5f8degfc5c2.uksouth-01.azurewebsites.net/dev/)
+- Storybook : [https://vuetify-playgrouund-main-c2g7a5f8degfc5c2.uksouth-01.azurewebsites.net/story/](https://vuetify-playgrouund-main-c2g7a5f8degfc5c2.uksouth-01.azurewebsites.net/story/)
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
