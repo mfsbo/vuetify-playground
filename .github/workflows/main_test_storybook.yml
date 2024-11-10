@@ -35,6 +35,9 @@ jobs:
       
     - name: Build Storybook
       run: npm run build-storybook --quiet
+
+    - name: Create reports directory
+      run: mkdir -p ./reports
     
     - name: Serve Storybook and run tests
       run: |
