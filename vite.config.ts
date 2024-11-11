@@ -17,5 +17,6 @@ export default defineConfig({
       key: `./certs/localhost-key.pem`,
       cert: `./certs/localhost.pem`,
     },
+    port: 4175,
   },
 })
